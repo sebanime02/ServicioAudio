@@ -12,15 +12,20 @@ import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
 
+
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnCompletionListener {
-	TextView tv1;
+	TextView tv1,tv2,tv3;
 	MediaRecorder recorder;
 	MediaPlayer player;
 	File archivo;
+	File archivo2;
 	ImageButton b1, b2, b3;
+	Button btnguardar;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +33,32 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		setContentView(R.layout.activity_main);
 
 		tv1 = (TextView) this.findViewById(R.id.textView1);
+		tv2= (TextView) findViewById(R.id.edtitulo);
+		tv3 = (TextView) findViewById(R.id.edtcategoria);
 		b1 = (ImageButton) findViewById(R.id.button1);
 		b2 = (ImageButton) findViewById(R.id.button2);
 		b3 = (ImageButton) findViewById(R.id.button3);
+		btnguardar = (Button) findViewById(R.id.Guardar);
 	}
 
+	
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	
+	
 
 	public void grabar(View v) {
+		
+		String ruta = (String) getText(R.id.tvtitulo);
+		
+		
 		recorder = new MediaRecorder();
 		recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 		recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -48,7 +66,7 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		File path = new File(Environment.getExternalStorageDirectory()
 				.getPath());
 		try {
-			archivo = File.createTempFile("temporal", ".3gp", path);
+			archivo = File.createTempFile(ruta, ".3gp", path);
 		} catch (IOException e) {
 		}
 		recorder.setOutputFile(archivo.getAbsolutePath());
@@ -95,4 +113,13 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		b3.setEnabled(true);
 		tv1.setText("Listo");
 	}
+	
+	
+	public void Grabar(View v){
+		
+		
+		
+	}
+	
+	
 }

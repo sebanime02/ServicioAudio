@@ -9,4 +9,7 @@
    <string name="Grabar">Grabar</string>
    <string name="Detener">Detener</string>
    <string name="Reproducir">Reproducir</string>
+   <string name="Titulo">Titulo</string>
+   <string name="categoria">Categoria</string>
+   <string name="Guardar">Guardar</string>
 </resources>
