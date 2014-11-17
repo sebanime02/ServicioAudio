@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ServicioAudio</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="contentdescripcion">contenido</string>
+    
+    <string name="Guardar" >Guardar</string>
+    <string name="Repetir" >Repetir</string>
+    <string name="DescripGrab">Pulse Arriba Para Grabar</string>
+    <string name="txvtitulo">Titulo</string>
+    
+    <string name="txvcategoria">Categoria</string>
+    <string  name="btnGuardar">Guardar</string>
+    <string name="btnRepetir">Repetir</string>
+</resources>

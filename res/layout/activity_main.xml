@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.servicioaudio.MainActivity" >
+
+    <ImageButton
+        android:id="@+id/Grabar"
+        android:layout_width="@dimen/anchobotones"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blanco"
+        android:contentDescription="@string/contentdescripcion"
+        android:src="@drawable/grabador" />
+
+    <ImageButton
+        android:id="@+id/Play"
+        android:layout_width="@dimen/anchobotones"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginbotoncenter"
+        android:layout_marginRight="@dimen/margenbotones"
+        android:layout_marginTop="@dimen/margensuperior"
+        android:background="@color/blanco"
+        android:contentDescription="@string/contentdescripcion"
+        android:src="@drawable/btnplay"
+         />
+
+    <ImageButton
+        android:id="@+id/Pausar"
+        android:layout_width="@dimen/anchobotones"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginleft"
+        android:layout_marginTop="@dimen/margensuperior"
+        android:layout_toRightOf="@+id/Play"
+        android:background="@color/blanco"
+        android:contentDescription="@string/contentdescripcion"
+        android:src="@drawable/btnpause"
+         />
+
+    <EditText
+        android:id="@+id/edxtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/Pausar"
+        android:layout_below="@id/Pausar"
+        android:layout_marginTop="@dimen/margenbotones"
+       
+        android:background="@color/naranja"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/txvcategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txvtitulo"
+        android:layout_below="@id/txvtitulo"
+        android:layout_marginTop="@dimen/margenbotones"
+        android:background="@color/blanco"
+        android:text="@string/txvcategoria"
+        android:textSize="@dimen/dimenletras" />
+
+    <EditText
+        android:id="@+id/edxcategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/edxtitulo"
+        android:layout_below="@id/txvtitulo"
+        android:layout_marginTop="@dimen/margenbotones"
+        android:layout_toRightOf="@id/txvcategoria"
+        android:background="@color/naranja"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/txvtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/edxtitulo"
+        android:layout_toLeftOf="@+id/Grabar"
+        android:background="@color/blanco"
+        android:text="@string/txvtitulo"
+        android:textSize="@dimen/dimenletras" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="@dimen/anchobotones"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Play"
+        android:layout_below="@+id/txvcategoria"
+        android:layout_marginTop="@dimen/margintop"
+        android:background="@color/azuloscuro"
+        android:text="@string/btnGuardar"
+        android:textSize="@dimen/dimenletras"
+        android:textColor="@color/blanco" />
+
+    <Button
+        android:id="@+id/btnRepetir"
+        android:layout_width="@dimen/anchobotones"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnGuardar"
+        android:layout_alignBottom="@+id/btnGuardar"
+        android:layout_alignRight="@+id/edxcategoria"
+        android:background="@color/azuloscuro"
+        android:text="@string/btnRepetir"
+        android:textColor="@color/blanco"
+        android:textSize="@dimen/dimenletras" />
+
+</RelativeLayout>
