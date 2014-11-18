@@ -110,4 +110,13 @@
     android:text="@string/Guardar"
     android:textColor="@color/blanco" />
 
+<TextView
+    android:id="@+id/resultados"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/Guardar"
+    android:layout_below="@+id/Guardar"
+    android:background="@color/negro"
+    android:textColor="@color/blanco" />
+
 </RelativeLayout>

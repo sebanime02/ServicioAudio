@@ -1,24 +1,28 @@
 package com.androidya.proyecto026;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+
 
 import android.app.Activity;
+
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Base64;
+
 import android.view.Menu;
 import android.view.View;
-
-
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnCompletionListener {
-	TextView tv1,tv2,tv3;
+	TextView tv1,tv2,tv3,Resul;
 	MediaRecorder recorder;
 	MediaPlayer player;
 	File archivo;
@@ -39,6 +43,8 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		b2 = (ImageButton) findViewById(R.id.button2);
 		b3 = (ImageButton) findViewById(R.id.button3);
 		btnguardar = (Button) findViewById(R.id.Guardar);
+		Resul =(TextView) findViewById(R.id.resultados);
+		
 	}
 
 	
@@ -54,7 +60,7 @@ public class MainActivity extends Activity implements OnCompletionListener {
 	
 	
 
-	public void grabar(View v) {
+	public void grabar(View v) throws IOException {
 		
 		String ruta = (String) getText(R.id.tvtitulo);
 		
@@ -65,8 +71,11 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 		File path = new File(Environment.getExternalStorageDirectory()
 				.getPath());
+		
+		
 		try {
 			archivo = File.createTempFile(ruta, ".3gp", path);
+			
 		} catch (IOException e) {
 		}
 		recorder.setOutputFile(archivo.getAbsolutePath());
@@ -79,6 +88,32 @@ public class MainActivity extends Activity implements OnCompletionListener {
 		b1.setEnabled(false);
 		b2.setEnabled(true);
 	}
+
+	@SuppressWarnings("resource")
+	public byte[] getBytesFromFile(java.io.File path) throws IOException {
+		InputStream is = new FileInputStream(path);
+        long length = path.length();
+        if (length > Integer.MAX_VALUE)
+                         {
+
+        }
+        byte[] bytes = new byte[(int)length];
+        int offset = 0;
+        int numRead = 0;
+        while (offset < bytes.length
+               && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
+            offset += numRead;
+        }
+        if (offset < bytes.length) {
+            throw new IOException("Could not completely read file "+path.getName());
+        }
+        is.close();
+        return bytes;
+	}
+
+
+
+
 
 	public void detener(View v) {
 		recorder.stop();
@@ -115,7 +150,20 @@ public class MainActivity extends Activity implements OnCompletionListener {
 	}
 	
 	
-	public void Grabar(View v){
+	public void Guardar(View v) throws IOException{
+	
+		
+		
+		
+		String titulo = (String) getText(R.id.tvtitulo);
+		
+		
+		String categoria = (String) getText(R.id.tvcategoria);
+		
+		byte[] FileBytes =getBytesFromFile(archivo.getAbsoluteFile());
+		
+		String base64 = Base64.encodeToString(FileBytes, Base64.NO_WRAP).toString();
+		Resul.setText(base64);
 		
 		
 		
